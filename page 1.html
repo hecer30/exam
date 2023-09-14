@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>exam</title>
+    <style>
+        #gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .media-container {
+            text-align: center;
+            /* Add background color here */
+            background-color: #b69393;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .media {
+            width: 300px;
+            height: auto;
+            border: 2px solid #ccc;
+            padding: 5px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            padding: 10px;
+            /* Add button background color here */
+            background-color: #6e7072;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="media-container">
+        <img class="media" id="image1" src="download.jpeg" alt="Image 1">
+        <button onclick="changeImage('image1')">Change Image</button>
+        <img class="media" id="image2" src="download.jpeg" alt="Image 2">
+        <button onclick="changeImage('image2')">Change Image</button>
+        <img class="media" id="image3" src="download.jpeg" alt="Image 3">
+        <button onclick="changeImage('image3')">Change Image</button>
+    </div>
+
+   
+    <div class="media-container">
+        <video class="media" id="video1" controls>
+            <source src="video (2160p).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button onclick="changeVideo('video1')">Change Video</button>
+        <video class="media" id="video2" controls>
+            <source src="video (2160p).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button onclick="changeVideo('video2')">Change Video</button>
+        <video class="media" id="video3" controls>
+            <source src="video (2160p).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button onclick="changeVideo('video3')">Change Video</button>
+    </div>
+
+    
+
+    <script>
+        function changeImage(imageId) {
+            const imageElement = document.getElementById(imageId);
+
+            // Example: Change the image source to a new image
+            if (imageId === 'image1') {
+                imageElement.src = 'download (1).jpeg';
+            } else if (imageId === 'image2') {
+                imageElement.src = 'download (1).jpeg';
+            } else if (imageId === 'image3') {
+                imageElement.src = 'download (1).jpeg';
+            }
+        }
+
+        function changeVideo(videoId) {
+            const videoElement = document.getElementById(videoId);
+
+            // Example: Change the video source to a new video
+            if (videoId === 'video1') {
+                videoElement.src = 'video (2160p) (1).mp4';
+            } else if (videoId === 'video2') {
+                videoElement.src = 'video (2160p) (1).mp4';
+            } else if (videoId === 'video3') {
+                videoElement.src = 'video (2160p) (1).mp4';
+            }
+
+            // Reset video playback
+            videoElement.load();
+        }
+    </script>
+</body>
+</html>

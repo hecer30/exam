@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>exam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .event-container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #mouseOverDiv {
+            width: 200px;
+            height: 100px;
+            background-color: #007bff;
+            margin: 0 auto;
+            transition: background-color 0.3s;
+        }
+
+        #animationDiv {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6600;
+            margin: 0 auto;
+            border-radius: 50%;
+            animation: colorChange 3s infinite;
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: #ff6600;
+            }
+            50% {
+                background-color: #007bff;
+            }
+            100% {
+                background-color: #ff6600;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="event-container">
+        <button id="clickBtn">Click Me</button>
+        <p id="clickEvent">Click Event Result </p>
+    </div>
+
+    <div class="event-container">
+        <input type="text" id="blurInput" placeholder="Click outside this input">
+        <p id="blurEvent">Blur Event Result</p>
+    </div>
+
+    <div class="event-container">
+        <select id="changeSelect">
+            <option value="Option 1">Option 1</option>
+            <option value="Option 2">Option 2</option>
+            <option value="Option 3">Option 3</option>
+        </select>
+        <p id="changeEvent">Change Event Result</p>
+    </div>
+
+    <div class="event-container">
+        <p id="dblclickEvent">Double-Click Event Result </p>
+    </div>
+
+    <div class="event-container">
+        <input type="text" id="focusInInput" placeholder="Click inside this input">
+        <p id="focusInEvent">Focus In Event Result</p>
+    </div>
+
+    <div class="event-container">
+        <input type="text" id="focusOutInput" placeholder="Click inside this input and then outside">
+        <p id="focusOutEvent">Focus Out Event Result</p>
+    </div>
+
+    <div class="event-container">
+        <div id="mouseOverDiv"></div>
+        <p id="mouseOverEvent">Mouse Over Event Result</p>
+    </div>
+
+    <div class="event-container">
+        <p id="resizeEvent">Resize Event Result</p>
+    </div>
+
+    <div class="event-container">
+        <div id="animationDiv"></div>
+        <p id="animationStartEvent">Animation Start Event Result</p>
+        <p id="animationEndEvent">Animation End Event Result</p>
+    </div>
+
+    <script>
+        // Event listeners for the listed events
+        document.getElementById('clickBtn').addEventListener('click', function() {
+            document.getElementById('clickEvent').textContent = 'Button Clicked!';
+        });
+
+        document.getElementById('blurInput').addEventListener('blur', function() {
+            document.getElementById('blurEvent').textContent = 'Input Blurred!';
+        });
+
+        document.getElementById('changeSelect').addEventListener('change', function() {
+            document.getElementById('changeEvent').textContent = 'Select Changed!';
+        });
+
+        document.getElementById('dblclickEvent').addEventListener('dblclick', function() {
+            document.getElementById('dblclickEvent').textContent = 'Double-Clicked!';
+        });
+
+        document.getElementById('focusInInput').addEventListener('focusin', function() {
+            document.getElementById('focusInEvent').textContent = 'Input Focused In!';
+        });
+
+        document.getElementById('focusOutInput').addEventListener('focusout', function() {
+            document.getElementById('focusOutEvent').textContent = 'Input Focused Out!';
+        });
+
+        document.getElementById('mouseOverDiv').addEventListener('mouseover', function() {
+            document.getElementById('mouseOverDiv').style.backgroundColor = '#009900';
+            document.getElementById('mouseOverEvent').textContent = 'Mouse Over Div!';
+        });
+
+        document.getElementById('mouseOverDiv').addEventListener('mouseout', function() {
+            document.getElementById('mouseOverDiv').style.backgroundColor = '#007bff';
+            document.getElementById('mouseOverEvent').textContent = '';
+        });
+
+        window.addEventListener('resize', function() {
+            document.getElementById('resizeEvent').textContent = 'Window Resized!';
+        });
+
+        const animationDiv = document.getElementById('animationDiv');
+        animationDiv.addEventListener('animationstart', function() {
+            document.getElementById('animationStartEvent').textContent = 'Animation Started!';
+        });
+
+        animationDiv.addEventListener('animationend', function() {
+            document.getElementById('animationEndEvent').textContent = 'Animation Ended!';
+        });
+    </script>
+</body>
+</html>
